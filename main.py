@@ -11,12 +11,19 @@ from jira.jira_client import get_all_jira_envs, create_user_story, create_sub_ta
 st.set_page_config(layout='wide')
 from streamlit_option_menu import option_menu
 from gpt import gen_response, simple_gen_response
+import logging
 import datetime;
 
+# Configure the logging module
+logging.basicConfig(level=logging.DEBUG)
+# Create a logger object
+logger = logging.getLogger(__name__)
+logger.debug("This is a debug message1")
 headers = CaseInsensitiveDict()
 headers["Accept"] = "application/json"
 headers["Content-Type"] = "application/json"
 
+logger.debug("This is a debug message2")
 
 def show_messages(text):
     messages_str = [
@@ -24,12 +31,14 @@ def show_messages(text):
     ]
     text.text_area("Messages", value=str("\n".join(messages_str)), height=400)
 
+logger.debug("This is a debug message3")
 
 def img_to_bytes(img_path):
     img_bytes = Path(img_path).read_bytes()
     encoded_img = base64.b64encode(img_bytes).decode()
     return encoded_img
 
+logger.debug("This is a debug message4")
 
 with st.sidebar:
     choose = option_menu("Jira GPT", ["Generate User Story", "Jira Env Setup", "GPT Play Ground","About","Contact"],
@@ -43,8 +52,10 @@ with st.sidebar:
                              "nav-link-selected": {"background-color": "#2f5335"},
                          }
                          )
-
+logger.debug("This is a debug message5")
 logo = Image.open(r'./images/jira-gpt.png')
+logger.debug("This is a debug message6")
+
 if choose == "About":
     col1, col2 = st.columns([0.8, 0.2])
     with col1:  # To display the header text using css style

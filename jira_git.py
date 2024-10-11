@@ -10,7 +10,8 @@ os.environ['GIT_ASKPASS'] = os.path.join(project_dir, 'askpass.py')
 if not os.path.isdir('./git_repo/' + git_dir_name):
     git.Git('./git_repo/').clone(git_remote_url)
 
-repo = git.Repo('./git_repo/' + git_dir_name)
+#repo = git.Repo('./git_repo/' + git_dir_name)
+repo = git.Repo('./');
 #repo = 'https://gmail.com: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@github.com/lagairogo-gai/JIRA-GPT.git/';
 
 def gen_git_code(user_code_input, dev_description, jira_ticket):
