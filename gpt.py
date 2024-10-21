@@ -10,7 +10,7 @@ from gpt4allj import Model
 logger.debug("This is a debug message22")
 import re
 logger.debug("This is a debug message33")
-model = Model('./model/ggml-gpt4all-j.bin')
+model = Model('./model/gpt4all-installer-linux.run')
 logger.debug("This is a debug message44")
 
 def gen_response(prompt):
